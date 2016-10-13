@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group = "com.github.android-upload-service"
+group = "com.github.NaikSoftware"
 
 android {
     compileSdkVersion 24
