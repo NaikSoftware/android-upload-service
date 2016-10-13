@@ -2,6 +2,7 @@ package net.gotev.uploadservice;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.TextUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -29,7 +30,7 @@ public class UploadFile implements Parcelable {
      */
     public UploadFile(final String path) throws FileNotFoundException {
 
-        if (path == null || "".equals(path)) {
+        if (TextUtils.isEmpty(path)) {
             throw new IllegalArgumentException("Please specify a file path!");
         }
 
