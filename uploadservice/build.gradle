@@ -1,11 +1,11 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
+//apply plugin: 'com.jfrog.bintray'
 
-def siteUrl = 'https://github.com/gotev/android-upload-service'
-def gitUrl = 'https://github.com/gotev/android-upload-service.git'
+//def siteUrl = 'https://github.com/gotev/android-upload-service'
+//def gitUrl = 'https://github.com/gotev/android-upload-service.git'
 def projectName = "android-upload-service"
-def projectDesc = "Easily upload files in the background with automatic Android Notification Center progress indication."
+//def projectDesc = "Easily upload files in the background with automatic Android Notification Center progress indication."
 def projectGroup = "ua.naiksoftware" + "." + projectName
 group = projectGroup
 version = "3.1.0"
@@ -46,59 +46,59 @@ dependencies {
 //
 // be sure to add local.properties to the .gitignore!
 
-Properties properties = new Properties()
-if (project.rootProject.file("local.properties").exists()) {
-    properties.load(project.rootProject.file('local.properties').newDataInputStream())
-}
+//Properties properties = new Properties()
+//if (project.rootProject.file("local.properties").exists()) {
+//    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//}
 
-install {
-    repositories.mavenInstaller {
-        pom.project {
-            name projectName
-            description projectDesc
-            packaging 'aar'
-            groupId projectGroup
-            version version
-            url siteUrl
-            licenses {
-                license {
-                    name 'The Apache Software License, Version 2.0'
-                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                }
-            }
-            developers {
-                developer {
-                    id 'gotev'
-                    name 'Aleksandar Gotev'
-                }
-            }
-            scm {
-                connection gitUrl
-                developerConnection gitUrl
-                url siteUrl
-
-            }
-        }
-    }
-}
-
-bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-    configurations = ['archives']
-    pkg {
-        repo = "maven"
-        name = projectName
-        desc = projectDesc
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        issueTrackerUrl = siteUrl + "/issues/"
-        licenses = ["Apache-2.0"]
-        labels = ['android', 'upload', 'service', 'library', 'background', 'notification']
-        publicDownloadNumbers = true
-        publish = true
-    }
-}
+//install {
+//    repositories.mavenInstaller {
+//        pom.project {
+//            name projectName
+//            description projectDesc
+//            packaging 'aar'
+//            groupId projectGroup
+//            version version
+//            url siteUrl
+//            licenses {
+//                license {
+//                    name 'The Apache Software License, Version 2.0'
+//                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//                }
+//            }
+//            developers {
+//                developer {
+//                    id 'gotev'
+//                    name 'Aleksandar Gotev'
+//                }
+//            }
+//            scm {
+//                connection gitUrl
+//                developerConnection gitUrl
+//                url siteUrl
+//
+//            }
+//        }
+//    }
+//}
+//
+//bintray {
+//    user = properties.getProperty("bintray.user")
+//    key = properties.getProperty("bintray.apikey")
+//    configurations = ['archives']
+//    pkg {
+//        repo = "maven"
+//        name = projectName
+//        desc = projectDesc
+//        websiteUrl = siteUrl
+//        vcsUrl = gitUrl
+//        issueTrackerUrl = siteUrl + "/issues/"
+//        licenses = ["Apache-2.0"]
+//        labels = ['android', 'upload', 'service', 'library', 'background', 'notification']
+//        publicDownloadNumbers = true
+//        publish = true
+//    }
+//}
 
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
