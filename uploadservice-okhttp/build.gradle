@@ -34,9 +34,9 @@ android {
 dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.4.1'
     compile 'com.squareup.okhttp3:okhttp-urlconnection:3.4.1'
-    //compile 'net.gotev:uploadservice:3.0.2'
+    compile 'net.gotev:uploadservice:3.+'
     //comment the previous line and uncomment the next line for development (it uses the local lib)
-    compile project(':uploadservice')
+//    compile project(':uploadservice')
 }
 
 Properties properties = new Properties()

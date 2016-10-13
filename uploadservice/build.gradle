@@ -12,13 +12,14 @@ group = projectGroup
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "23.0.3"
+    buildToolsVersion "24.0.2"
 
     defaultConfig {
         minSdkVersion 10
         targetSdkVersion 24
         versionCode 18
-        versionName version
+//        versionName version
+        versionName "1.0"
     }
     buildTypes {
         release {
@@ -26,12 +27,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    lintOptions {
-        warning 'InvalidPackage'
-    }
+//    lintOptions {
+//        warning 'InvalidPackage'
+//    }
 }
 
 dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:support-v4:24.2.1'
     compile 'com.squareup.okhttp3:okhttp:3.4.1'
@@ -100,34 +102,34 @@ dependencies {
 //    }
 //}
 
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-    title = "Android Upload Service $project.version API"
-    description "Generates Javadoc"
-    source = android.sourceSets.main.java.srcDirs
-    classpath += files(android.bootClasspath)
-    exclude '**/BuildConfig.java', '**/R.java'
-    options {
-        windowTitle("Android Upload Service $project.version Reference")
-        locale = 'en_US'
-        encoding = 'UTF-8'
-        charSet = 'UTF-8'
-        links("http://docs.oracle.com/javase/7/docs/api/");
-        linksOffline("http://d.android.com/reference", "${android.sdkDirectory}/docs/reference");
-        setMemberLevel(JavadocMemberLevel.PUBLIC)
-    }
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives javadocJar
-    archives sourcesJar
-}
+//task sourcesJar(type: Jar) {
+//    from android.sourceSets.main.java.srcDirs
+//    classifier = 'sources'
+//}
+//
+//task javadoc(type: Javadoc) {
+//    title = "Android Upload Service $project.version API"
+//    description "Generates Javadoc"
+//    source = android.sourceSets.main.java.srcDirs
+//    classpath += files(android.bootClasspath)
+//    exclude '**/BuildConfig.java', '**/R.java'
+//    options {
+//        windowTitle("Android Upload Service $project.version Reference")
+//        locale = 'en_US'
+//        encoding = 'UTF-8'
+//        charSet = 'UTF-8'
+//        links("http://docs.oracle.com/javase/7/docs/api/");
+//        linksOffline("http://d.android.com/reference", "${android.sdkDirectory}/docs/reference");
+//        setMemberLevel(JavadocMemberLevel.PUBLIC)
+//    }
+//}
+//
+//task javadocJar(type: Jar, dependsOn: javadoc) {
+//    classifier = 'javadoc'
+//    from javadoc.destinationDir
+//}
+//
+//artifacts {
+//    archives javadocJar
+//    archives sourcesJar
+//}
